@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Palette</title>
+    <link rel="stylesheet" href="create.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="pixel palette.png" alt="logo" />
+        <h2 id="h2">Pixel Palette</h2>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="create.html">Create & Sell</a></li>
+            <li><a href="discover.html">Discover</a></li>
+        </ul>
+        <div class="icons">
+            <div class="dropdown">
+                <lord-icon
+                    src="https://cdn.lordicon.com/xfftupfv.json"
+                    trigger="hover"
+                    colors="primary:black"
+                    style="width:30px;height:30px">
+                </lord-icon>
+                <div class="dropdown-content">
+                    <!-- Add your search bar input here -->
+                    <input type="text" placeholder="Search...">
+                    <!-- You can add more items or links here -->
+                    <a href="#">Abstract</a>
+                    <a href="#">thumbnails</a>
+                    <a href="#">Vector art</a>
+                </div>
+            </div>
+            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+            <lord-icon
+                src="https://cdn.lordicon.com/hyhnpiza.json"
+                trigger="hover"
+                colors="primary:black"
+                style="width:30px;height:30px">
+            </lord-icon>
+        </div>
+        
+    </div>
+    </div>
+    <div class="container">
+        <h2>Sell your Art</h2><br>
+        <div class="form-group">
+            <label for="imageUpload">Upload Image</label>
+            <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
+        </div>
+        <!-- Style the image element to reduce its size -->
+        <img id="uploadedImage" src="" alt="Uploaded Image" style="max-width: 300px; max-height: 300px; display: none;">
+        <form id="productForm">
+            <div class="form-group">
+                <label for="imageDescription">Image Description</label>
+                <textarea id="imageDescription" name="imageDescription" required rows="6" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="artCategory">Select Art Category</label>
+                <select id="artCategory" name="artCategory" required>
+                    <option value="" disabled selected>Select an art category</option>
+                    <option value="Digital Art">Digital Art</option>
+                    <option value="Vector Art">Vector Art</option>
+                    <option value="Pixel Art">Pixel Art</option>
+                    <option value="Digital Photography">Digital Photography</option>
+                    <option value="AI Art">AI Art</option>
+                    <option value="Animated Art">Animated Art</option>
+                    <option value="Drawings">Drawings</option>
+                    <option value="Thumbnails">Thumbnails</option>
+                    <option value="Others">Others</option>
+
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber" required pattern="[0-9]{10}" maxlength="10">
+            </div>            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price for the Product (in Rupees)</label>
+                <input type="number" id="price" name="price" required min="0.01">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // You can handle the form submission here using JavaScript.
+            // For simplicity, we'll display the form data in an alert.
+            const formData = new FormData(e.target);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            alert('Form Data Submitted:\n\n' + JSON.stringify(formObject, null, 2));
+        });
+    
+        // Function to handle image selection and display
+        document.getElementById('imageUpload').addEventListener('change', function () {
+            const image = document.getElementById('uploadedImage');
+            const fileInput = document.getElementById('imageUpload');
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    image.src = e.target.result;
+                    image.style.display = 'block';
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('mobileNumber').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, ''); // Remove any non-digit characters
+        });
+    </script>
+    
+</body>
+</html>

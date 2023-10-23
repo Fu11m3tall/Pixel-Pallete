@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    float: left;
+    width: 25%; /* Set each column to 25% width */
+    margin: 8px; /* Adjust the margin to create equal distance */
+    padding: 0;
+  }
+  
+  .card {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    width: 100%; /* Make the card take full width */
+  }
+  
+  
+  /* .about-section {
+    padding: 25px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  } */
+  
+  .container {
+    padding: 0 5px;
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .column {
+      width: 50%;
+      display: block;
+    }
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #d3d1d4;
+}
+
+.navbar {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 7%;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+
+.navbar img {
+    width: 100px;
+    height: 100px;
+}
+
+.navbar ul {
+    text-align: center;
+    flex: 1;
+}
+
+.navbar ul li {
+    padding: 24px 20px;
+    display: inline-block;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.navbar ul li a:hover, .icons i:hover {
+    color: brown;
+}
+
+.navbar ul li a::after {
+    content: "";
+    background-color: brown;
+    width: 0;
+    height: 2px;
+    display: block;
+    transition: .5s;
+}
+
+.navbar ul li a:hover::after {
+    width: 100px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  display: block;
+  text-align: left;
+  font-size: 16px;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px; /* Increase the font size for the search text as needed */
+}
+.icons {
+  display: flex;
+}
